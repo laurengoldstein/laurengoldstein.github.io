@@ -1,6 +1,6 @@
-require(`dotenv`).config()
+require(`dotenv`).config();
 
-const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -20,6 +20,12 @@ module.exports = {
   },
   trailingSlash: `never`,
   plugins: [
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
+    },
     {
       resolve: `@lekoarts/gatsby-theme-jodie`,
       // See the theme's README for all available options
@@ -72,4 +78,4 @@ module.exports = {
       },
     },
   ].filter(Boolean),
-}
+};
